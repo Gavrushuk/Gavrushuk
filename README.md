@@ -1,6 +1,6 @@
 ## Hi there 👋, my name is Illia!
 
-## I am Front End Developer with 5+ years of experience. I Always strive to bring more than required to make the product perfect.
+## I am Front End Developer with 5+ years of experience. I always strive to bring more than required to make the product perfect.
 
 💻 **Technology stack:**
 - VueJs (Vue, Vuex, Pinia, Vue Router);
@@ -8,6 +8,7 @@
 - HTML5;
 - CSS3;
 - CSS preprocessors (SCSS, SASS);
+- Tailwind CSS;
 - Bootstrap 4/5;
 - React JS;
 - Next JS;
@@ -20,9 +21,12 @@
 - Swiper React/JS;
 - OneSignal (push notifications);
 - Poool (banners and paywall);
-- Work with Maps (Leaflet.JS, Nominatim API);
+- Work with Maps (Leaflet.js, Nominatim API);
+- Varify.io (A/B Testing)
+- ElevenLabs (Chatbots)
+- Analytics
 
-🔬 **Not my main skill, but I have some experience on projects with:**
+🔬 **Not my main skill, but I have some experience with projects:**
 - Angular (2 years creating web apps);
 - Node.js;
 - Appolo GraphQL;
@@ -36,6 +40,5 @@
 
 📚 **I learned and tried in personal projects (you can check my successes in my GitHub):**
 - React Native;
-- Tailwind CSS;
 
 [<img src="https://user-images.githubusercontent.com/9266152/214280808-7266fe69-a38c-48a8-ad28-fcdd3d7bfd20.png" width="50" />](https://www.linkedin.com/in/illia-havryshchuk-795050151/)

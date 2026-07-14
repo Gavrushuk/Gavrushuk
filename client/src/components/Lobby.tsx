@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { createRoom, joinRoom, startGame, toggleReady } from '../socket/socketClient';
+import { createRoom, joinRoom, leaveRoom, startGame, toggleReady } from '../socket/socketClient';
 import { useGameStore } from '../store/gameStore';
 
 const panelClass = 'rounded-2xl border border-white/10 bg-slate-900/80 p-6 shadow-2xl shadow-black/30 backdrop-blur';
@@ -85,6 +85,7 @@ export default function Lobby(): JSX.Element {
 
 export function LobbyRoom(): JSX.Element {
   const roomState = useGameStore((state) => state.roomState);
+  const setRoomState = useGameStore((state) => state.setRoomState);
   const playerId = useGameStore((state) => state.playerId);
   const [copied, setCopied] = useState(false);
 
@@ -100,6 +101,11 @@ export function LobbyRoom(): JSX.Element {
     await navigator.clipboard.writeText(roomState.code);
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1200);
+  };
+
+  const handleLeave = (): void => {
+    leaveRoom();
+    setRoomState(null);
   };
 
   return (
@@ -145,6 +151,14 @@ export function LobbyRoom(): JSX.Element {
               </button>
             )}
           </div>
+
+          <button
+            type="button"
+            onClick={handleLeave}
+            className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm font-medium text-slate-400 transition hover:border-red-400 hover:text-red-400"
+          >
+            Leave Room
+          </button>
         </div>
 
         <div className={`${panelClass}`}>

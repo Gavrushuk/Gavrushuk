@@ -38,6 +38,9 @@ export const submitCollectiveVote = (code: string, objectIds: string[]): void =>
 export const rateHider = (code: string, rating: number): void => {
   socket.emit('rate_hider', { code, rating });
 };
+export const leaveRoom = (): void => {
+  socket.emit('leave_room');
+};
 export const playAgain = (code: string): void => {
   socket.emit('play_again', { code });
 };

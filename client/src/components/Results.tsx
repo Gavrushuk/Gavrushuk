@@ -1,8 +1,9 @@
-import { playAgain, rateHider } from '../socket/socketClient';
+import { leaveRoom, playAgain, rateHider } from '../socket/socketClient';
 import { useGameStore } from '../store/gameStore';
 
 export default function Results(): JSX.Element | null {
   const roomState = useGameStore((state) => state.roomState);
+  const setRoomState = useGameStore((state) => state.setRoomState);
   const playerId = useGameStore((state) => state.playerId);
   const hiderRating = useGameStore((state) => state.hiderRating);
   const setHiderRating = useGameStore((state) => state.setHiderRating);
@@ -97,6 +98,13 @@ export default function Results(): JSX.Element | null {
               Play Again
             </button>
           )}
+          <button
+            type="button"
+            onClick={() => { leaveRoom(); setRoomState(null); }}
+            className="mt-3 rounded-xl border border-white/10 px-4 py-3 text-sm font-medium text-slate-400 transition hover:border-red-400 hover:text-red-400"
+          >
+            Leave Room
+          </button>
         </div>
       </div>
     </div>

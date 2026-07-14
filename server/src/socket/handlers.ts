@@ -162,6 +162,14 @@ export const registerHandlers = (io: Server, socket: Socket): void => {
     }
   });
 
+  socket.on('leave_room', () => {
+    const roomCode = roomManager.removePlayer(socket.id);
+    if (roomCode) {
+      void socket.leave(roomCode);
+      emitRoomState(io, roomCode);
+    }
+  });
+
   socket.on('disconnect', () => {
     const roomCode = roomManager.removePlayer(socket.id);
     if (roomCode) {

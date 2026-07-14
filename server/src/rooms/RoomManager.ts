@@ -232,7 +232,11 @@ export class RoomManager {
     }
 
     if (room.phase === 'HIDING') {
-      return this.setHiddenObjects(room.code, room.hiddenObjectIds.length === HIDE_COUNT ? room.hiddenObjectIds : sampleObjects(room.objects));
+      const finalIds =
+        room.hiddenObjectIds.length === HIDE_COUNT
+          ? room.hiddenObjectIds
+          : sampleObjects(room.objects);
+      return this.setHiddenObjects(room.code, finalIds);
     }
     if (room.phase === 'SEARCHING') {
       room.phase = 'INDIVIDUAL_VOTE';

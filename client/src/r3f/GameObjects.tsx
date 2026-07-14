@@ -53,7 +53,7 @@ function ObjectMesh({ item }: { item: ObjectItem3D }): JSX.Element {
       if (roomState.phase !== 'SEARCHING' && !me.isHider) {
         toggleSelectedObject(item.id);
       }
-      sendChat(roomState.code, `Marked ${item.name}`, item.id);
+      sendChat(roomState.code, `Tagged ${item.name}`, item.id);
     }
   };
 

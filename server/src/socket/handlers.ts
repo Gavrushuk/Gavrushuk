@@ -133,7 +133,7 @@ export const registerHandlers = (io: Server, socket: Socket): void => {
         throw new Error('Only seekers can submit the final vote');
       }
       roomManager.submitCollectiveVote(code, objectIds);
-      emitRoomState(io, code.toUpperCase());
+      emitRoomState(io, room.code);
     } catch (error) {
       socket.emit('server_error', error instanceof Error ? error.message : 'Unable to submit collective vote');
     }
@@ -155,8 +155,8 @@ export const registerHandlers = (io: Server, socket: Socket): void => {
       if (!room || !player?.isHost) {
         throw new Error('Only the host can restart the room');
       }
-      roomManager.resetRoom(code);
-      emitRoomState(io, code.toUpperCase());
+      const resetRoom = roomManager.resetRoom(code);
+      emitRoomState(io, resetRoom.code);
     } catch (error) {
       socket.emit('server_error', error instanceof Error ? error.message : 'Unable to reset room');
     }
